@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Live Character Counter</title>
+  <style>
+    .container {
+      border: 1px solid #000;
+      padding: 15px;
+      max-width: 700px;
+      margin-bottom: 20px;
+      font-family: sans-serif;
+    }
+
+    textarea {
+      width: 95%;
+      height: 90px;
+      font-size: 16px;
+      padding: 10px;
+      margin-bottom: 10px;
+      resize: vertical;
+    }
+
+    .char-count {
+      font-weight: bold;
+    }
+  </style>
+</head>
+<body>
+
+<div class="container">
+  <h2>Live Character Counter</h2>
+  <textarea id="textInput" placeholder="Start typing..."></textarea>
+  <div>Characters: <span id="charCount">0</span></div>
+</div>
+
+<script>
+  const textInput = document.getElementById('textInput');
+  const charCount = document.getElementById('charCount');
+  
+  textInput.addEventListener('input', () => {
+    const noSpaces = textInput.value.replace(/\s/g, ''); // Remove all spaces (including tabs and newlines)
+    charCount.textContent = noSpaces.length;
+  });
+
+</script>
+
+</body>
+</html>
